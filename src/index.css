@@ -1,4 +1,204 @@
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f8fafc;color:#1e293b}
-a{text-decoration:none;color:inherit}
-button,input,select,textarea{font-family:inherit}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f8fafc;
+    color:#1e293b;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,input,select,textarea{
+    font-family:inherit;
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 7%;
+    background:white;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.nav-logo{
+    width:130px;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-size:15px;
+    color:#334155;
+}
+
+.nav-links a:hover{
+    color:#0f766e;
+}
+
+/* Home CSS */
+
+.home{
+    min-height:calc(100vh - 80px);
+    padding:60px 7%;
+}
+
+.home-content{
+    max-width:1100px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.home-content h1{
+    font-size:48px;
+    color:#0f766e;
+    margin-bottom:20px;
+}
+
+.home-content p{
+    font-size:18px;
+    color:#64748b;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.home-content button{
+    border:none;
+    padding:13px 24px;
+    border-radius:6px;
+    background:#0f766e;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.home-content button:hover{
+    background:#115e59;
+}
+
+/* Speciality CSS */
+
+.speciality-section{
+    width:100%;
+    max-width:1100px;
+    margin:70px auto 0;
+    text-align:center;
+}
+
+.speciality-section h2{
+    font-size:32px;
+    color:#1e293b;
+    margin-bottom:10px;
+}
+
+.speciality-section p{
+    color:#64748b;
+    margin-bottom:30px;
+}
+
+.speciality-list{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.speciality-card{
+    width:120px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.speciality-card img{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:10px;
+    transition:transform 0.3s;
+}
+
+.speciality-card:hover img{
+    transform:translateY(-5px);
+}
+
+.speciality-card p{
+    font-size:14px;
+    color:#334155;
+}
+
+/* Doctors CSS */
+
+.doctors-section{
+    width:100%;
+    max-width:1100px;
+    margin:80px auto 0;
+    text-align:center;
+}
+
+.doctors-section h2{
+    font-size:32px;
+    color:#1e293b;
+    margin-bottom:10px;
+}
+
+.doctors-section > p{
+    color:#64748b;
+    margin-bottom:30px;
+}
+
+.doctor-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.doctor-card{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:10px;
+    overflow:hidden;
+    text-align:left;
+    padding-bottom:18px;
+    cursor:pointer;
+    transition:transform 0.3s;
+}
+
+.doctor-card:hover{
+    transform:translateY(-5px);
+}
+
+.doctor-image{
+    width:100%;
+    height:180px;
+    background:#dbeafe;
+}
+
+.doctor-status{
+    color:#16a34a !important;
+    font-size:13px;
+    margin:12px 15px 5px;
+}
+
+.doctor-card h3{
+    font-size:17px;
+    color:#1e293b;
+    margin:0 15px 5px;
+}
+
+.doctor-card > p:last-child{
+    font-size:14px;
+    color:#64748b;
+    margin:0 15px;
+}
