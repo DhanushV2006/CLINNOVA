@@ -1,14 +1,21 @@
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
+import Doctors from './pages/Doctors'
 import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router'
 
 function App(){
     return(
-        <div>
+        <BrowserRouter>
             <Navbar/>
-            <Home/>
+
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/doctors" element={<Doctors/>}/>
+            </Routes>
+
             <Footer/>
-        </div>
+        </BrowserRouter>
     )
 }
 
