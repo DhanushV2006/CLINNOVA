@@ -507,3 +507,101 @@ button,input,select,textarea{
         margin-right:0;
     }
 }
+
+/* Join Doctor CSS */
+
+.join-doctor{
+    max-width:900px;
+    margin:0 auto;
+    padding:60px 30px;
+}
+
+.join-doctor h1{
+    text-align:center;
+    font-size:36px;
+    color:#0f766e;
+    margin-bottom:12px;
+}
+
+.join-doctor > p{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:40px;
+}
+
+.doctor-form{
+    background:white;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:35px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.doctor-form > div{
+    display:flex;
+    flex-direction:column;
+}
+
+.doctor-form label{
+    font-size:14px;
+    color:#334155;
+    margin-bottom:8px;
+}
+
+.doctor-form input,
+.doctor-form select{
+    width:100%;
+    padding:12px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    outline:none;
+    font-size:14px;
+    background:white;
+}
+
+.doctor-form input:focus,
+.doctor-form select:focus{
+    border-color:#0f766e;
+}
+
+.doctor-form input[type="file"]{
+    padding:9px;
+}
+
+.doctor-form button{
+    grid-column:1 / -1;
+    border:none;
+    padding:14px;
+    border-radius:6px;
+    background:#0f766e;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.doctor-form button:hover{
+    background:#115e59;
+}
+
+/* Join Doctor Responsive CSS */
+
+@media(max-width:600px){
+    .join-doctor{
+        padding:40px 20px;
+    }
+
+    .join-doctor h1{
+        font-size:30px;
+    }
+
+    .doctor-form{
+        grid-template-columns:1fr;
+        padding:25px;
+    }
+
+    .doctor-form button{
+        grid-column:auto;
+    }
+}
