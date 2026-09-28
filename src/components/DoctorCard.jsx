@@ -1,20 +1,28 @@
-function DoctorCard({name,speciality,image}){
+import { useNavigate } from 'react-router-dom'
 
-    return(
-        <div className="doctor-card">
+const DoctorCard = ({ image, name, speciality }) => {
 
-            <div className="doctor-image">
-                <img src={image} alt={name}/>
-            </div>
+  const navigate = useNavigate()
 
-            <p className="doctor-status">Available</p>
+  return (
+    <div className="doctor-card">
 
-            <h3>{name}</h3>
+      <div className="doctor-image">
+        <img src={image} alt={name} />
+      </div>
 
-            <p>{speciality}</p>
+      <div className="doctor-info">
+        <h3>{name}</h3>
 
-        </div>
-    )
+        <p>{speciality}</p>
+
+        <button onClick={() => navigate('/appointment')}>
+          Book Appointment
+        </button>
+      </div>
+
+    </div>
+  )
 }
 
 export default DoctorCard
