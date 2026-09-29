@@ -5,22 +5,22 @@ import Footer from './components/Footer'
 import JoinDoctor from './pages/JoinDoctor'
 import ApplicationStatus from './pages/ApplicationStatus'
 import Appointment from './pages/Appointment'
-import { BrowserRouter, Routes, Route } from 'react-router'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App(){
-    return(
+function App() {
+    return (
         <BrowserRouter>
-            <Navbar/>
+            <Navbar />
 
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route path="/" element={<Home />} />
                 <Route path="/appointment" element={<Appointment />} />
-                <Route path="/doctors" element={<Doctors/>}/>
-                <Route path="/join-doctor" element={<JoinDoctor/>}/>
-                <Route path="/application-status" element={<ApplicationStatus/>}/>
+                <Route path="/doctors" element={<Doctors />} />
+                <Route path="/join-doctor" element={<JoinDoctor />} />
+                <Route path="/application-status" element={<ApplicationStatus />} />
             </Routes>
 
-            <Footer/>
+            <Footer />
         </BrowserRouter>
     )
 }

@@ -1,6 +1,22 @@
-import React from 'react'
+import { useState } from 'react'
 
 const Appointment = () => {
+
+  const [doctor, setDoctor] = useState('')
+  const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    if (!doctor || !date || !time) {
+      alert('Please select a doctor, date and time.')
+      return
+    }
+
+    alert(`Appointment booked with ${doctor} on ${date} at ${time}.`)
+  }
+
   return (
     <div className="appointment-page">
 
@@ -12,26 +28,42 @@ const Appointment = () => {
           Choose a doctor, date and time for your consultation.
         </p>
 
-        <div className="appointment-form">
+        <form className="appointment-form" onSubmit={handleSubmit}>
 
           <label>Doctor</label>
-          <select>
-            <option>Select Doctor</option>
-            <option>Dr. Richard James</option>
-            <option>Dr. Emily Watson</option>
-            <option>Dr. Michael Brown</option>
-            <option>Dr. Sarah Wilson</option>
+
+          <select
+            value={doctor}
+            onChange={(event) => setDoctor(event.target.value)}
+          >
+            <option value="">Select Doctor</option>
+            <option value="Dr. Richard James">Dr. Richard James</option>
+            <option value="Dr. Emily Watson">Dr. Emily Watson</option>
+            <option value="Dr. Michael Brown">Dr. Michael Brown</option>
+            <option value="Dr. Sarah Wilson">Dr. Sarah Wilson</option>
           </select>
 
           <label>Date</label>
-          <input type="date" />
+
+          <input
+            type="date"
+            value={date}
+            onChange={(event) => setDate(event.target.value)}
+          />
 
           <label>Time</label>
-          <input type="time" />
 
-          <button>Confirm Appointment</button>
+          <input
+            type="time"
+            value={time}
+            onChange={(event) => setTime(event.target.value)}
+          />
 
-        </div>
+          <button type="submit">
+            Confirm Appointment
+          </button>
+
+        </form>
 
       </div>
 
