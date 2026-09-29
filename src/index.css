@@ -605,3 +605,72 @@ button,input,select,textarea{
         grid-column:auto;
     }
 }
+
+/* Appointment Page */
+
+.appointment-page {
+  min-height: 80vh;
+  padding: 50px 20px;
+  background: #f8fafc;
+}
+
+.appointment-container {
+  max-width: 600px;
+  margin: auto;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.appointment-container h1 {
+  margin-bottom: 10px;
+  color: #1e293b;
+}
+
+.appointment-subtitle {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.appointment-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 10px;
+}
+
+.appointment-form select,
+.appointment-form input {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.appointment-form select:focus,
+.appointment-form input:focus {
+  border-color: #2563eb;
+}
+
+.appointment-form button {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.appointment-form button:hover {
+  background: #1d4ed8;
+}
