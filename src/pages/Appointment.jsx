@@ -5,6 +5,7 @@ const Appointment = () => {
   const [doctor, setDoctor] = useState('')
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
+  const [booked, setBooked] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -14,7 +15,7 @@ const Appointment = () => {
       return
     }
 
-    alert(`Appointment booked with ${doctor} on ${date} at ${time}.`)
+    setBooked(true)
   }
 
   return (
@@ -64,6 +65,34 @@ const Appointment = () => {
           </button>
 
         </form>
+
+        {booked && (
+          <div className="appointment-success">
+
+            <h2>Appointment Confirmed!</h2>
+
+            <p>
+              Your appointment has been successfully booked.
+            </p>
+
+            <div className="appointment-details">
+
+              <p>
+                <strong>Doctor:</strong> {doctor}
+              </p>
+
+              <p>
+                <strong>Date:</strong> {date}
+              </p>
+
+              <p>
+                <strong>Time:</strong> {time}
+              </p>
+
+            </div>
+
+          </div>
+        )}
 
       </div>
 
