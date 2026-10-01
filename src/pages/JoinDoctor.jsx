@@ -1,146 +1,176 @@
 import { useState } from 'react'
 
-function JoinDoctor(){
-    const [formData,setFormData] = useState({
-        name:"",
-        email:"",
-        phone:"",
-        speciality:"",
-        qualification:"",
-        experience:"",
-        license:""
+function JoinDoctor() {
+
+    const [submitted, setSubmitted] = useState(false)
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        speciality: '',
+        license: '',
+        experience: ''
     })
 
-    const handleChange = (event)=>{
-        const {name,value} = event.target
+    const handleChange = (event) => {
+        const { name, value } = event.target
 
         setFormData({
             ...formData,
-            [name]:value
+            [name]: value
         })
     }
 
-    const handleSubmit = (event)=>{
-    event.preventDefault()
+    const handleSubmit = (event) => {
+        event.preventDefault()
 
-    console.log(formData)
+        setSubmitted(true)
+    }
 
-    window.location.href = "/application-status"
-}
+    return (
+        <main className="join-doctor-page">
 
-    return(
-        <main className="join-doctor">
-            <h1>Join CLINNOVA as a Doctor</h1>
+            {!submitted ? (
 
-            <p>
-                Submit your professional details to join CLINNOVA.
-            </p>
+                <div className="join-doctor-container">
 
-            <form className="doctor-form" onSubmit={handleSubmit}>
+                    <h1>Join CLINNOVA</h1>
 
-                <div>
-                    <label>Full Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Enter your full name"
-                        required
-                    />
-                </div>
+                    <p>
+                        Register as a doctor and connect with patients
+                        through CLINNOVA.
+                    </p>
 
-                <div>
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Enter your email"
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label>Phone Number</label>
-                    <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="Enter your phone number"
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label>Speciality</label>
-                    <select
-                        name="speciality"
-                        value={formData.speciality}
-                        onChange={handleChange}
-                        required
+                    <form
+                        className="join-doctor-form"
+                        onSubmit={handleSubmit}
                     >
-                        <option value="">Select speciality</option>
-                        <option>General Physician</option>
-                        <option>Gynecologist</option>
-                        <option>Dermatologist</option>
-                        <option>Pediatrician</option>
-                        <option>Neurologist</option>
-                        <option>Gastroenterologist</option>
-                    </select>
+
+                        <label>Full Name</label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your full name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
+
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                        />
+
+                        <label>Phone Number</label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            required
+                        />
+
+                        <label>Speciality</label>
+
+                        <select
+                            name="speciality"
+                            value={formData.speciality}
+                            onChange={handleChange}
+                            required
+                        >
+                            <option value="">
+                                Select speciality
+                            </option>
+
+                            <option value="General Physician">
+                                General Physician
+                            </option>
+
+                            <option value="Gynecologist">
+                                Gynecologist
+                            </option>
+
+                            <option value="Dermatologist">
+                                Dermatologist
+                            </option>
+
+                            <option value="Pediatrician">
+                                Pediatrician
+                            </option>
+
+                            <option value="Neurologist">
+                                Neurologist
+                            </option>
+
+                            <option value="Gastroenterologist">
+                                Gastroenterologist
+                            </option>
+                        </select>
+
+                        <label>Medical License Number</label>
+
+                        <input
+                            type="text"
+                            name="license"
+                            placeholder="Enter license number"
+                            value={formData.license}
+                            onChange={handleChange}
+                            required
+                        />
+
+                        <label>Years of Experience</label>
+
+                        <input
+                            type="number"
+                            name="experience"
+                            placeholder="Enter years of experience"
+                            value={formData.experience}
+                            onChange={handleChange}
+                            min="0"
+                            required
+                        />
+
+                        <button type="submit">
+                            Submit Application
+                        </button>
+
+                    </form>
+
                 </div>
 
-                <div>
-                    <label>Qualification</label>
-                    <input
-                        type="text"
-                        name="qualification"
-                        value={formData.qualification}
-                        onChange={handleChange}
-                        placeholder="Example: MBBS, MD"
-                        required
-                    />
+            ) : (
+
+                <div className="application-success">
+
+                    <h1>Application Submitted!</h1>
+
+                    <p>
+                        Thank you, Dr. {formData.name}.
+                    </p>
+
+                    <p>
+                        Your application has been submitted successfully
+                        and is awaiting admin verification.
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong> Pending Verification
+                    </p>
+
                 </div>
 
-                <div>
-                    <label>Years of Experience</label>
-                    <input
-                        type="number"
-                        name="experience"
-                        value={formData.experience}
-                        onChange={handleChange}
-                        placeholder="Enter years of experience"
-                        required
-                    />
-                </div>
+            )}
 
-                <div>
-                    <label>Medical License Number</label>
-                    <input
-                        type="text"
-                        name="license"
-                        value={formData.license}
-                        onChange={handleChange}
-                        placeholder="Enter license number"
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label>Upload License Document</label>
-                    <input
-                        type="file"
-                        required
-                    />
-                </div>
-
-                <button type="submit">
-                    Submit Application
-                </button>
-
-            </form>
         </main>
     )
 }
